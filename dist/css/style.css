@@ -56,5 +56,5 @@ body{font-size:14px;font-family:宋体;color:#333333;}
 .body p{ margin-top: 130px;font-size: 52px;color:rgb(145,145,145);}
 .topbanner{position: relative;background-color: rgb(18,18,18);height: 386px;}
 .aboutcontent{position: relative;width: 990px;margin: 0 auto 50px;}
-.aboutcontent label{position: relative;display:block;margin-top:50px;font-size: 32px;}
-.aboutcontent p{position: relative;margin-top: 30px;text-indent: 60px;font-size: 30px;padding-left: 45px;display: block;}
+.aboutcontent label{position: relative;display:block;margin-top:50px;font-size: 16px;}
+.aboutcontent p{position: relative;margin-top: 30px;text-indent: 60px;font-size: 15px;padding-left: 25px;display: block;}
