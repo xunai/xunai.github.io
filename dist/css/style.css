@@ -58,3 +58,5 @@ body{font-size:14px;font-family:宋体;color:#333333;}
 .aboutcontent{position: relative;width: 990px;margin: 0 auto 50px;}
 .aboutcontent label{position: relative;display:block;margin-top:50px;font-size: 16px;}
 .aboutcontent p{position: relative;margin-top: 30px;text-indent: 60px;font-size: 15px;padding-left: 25px;display: block;}
+.footer{position: relative;}
+.footer p{text-align: center;padding:5px 0;font-size: 12px;}
