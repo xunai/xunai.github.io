@@ -113,7 +113,7 @@ var houseList = {
 					dataType: 'jsonp',
 					data: {
 						"state": 2,
-						"id": id,
+						"uid": id,
 						"userid": parseInt(g_loginuser.xunai_uid)
 					},
 					jsonp: "callbackparam",
@@ -145,7 +145,7 @@ var houseList = {
 					dataType: 'jsonp',
 					data: {
 						"state": 3,
-						"id": id,
+						"uid": id,
 						"userid": parseInt(g_loginuser.xunai_uid)
 					},
 					jsonp: "callbackparam",
@@ -180,9 +180,9 @@ var houseList = {
 		var me = this;
 		$("#noCheckList").html("");
 		for (var i = 0; i < data.length; i++) {
-			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
-				'<input type="checkbox" name="id" value="' + data[i].id + '"">' +
-				'<img src="' + data[i].idCard + '" class="img-head" alt="User Image" /></div>';
+			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].uid + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
+				'<input type="checkbox" name="id" value="' + data[i].uid + '"">' +
+				'<img src="' + data[i].houseUrl + '" class="img-head" alt="User Image" /></div>';
 			$("#noCheckList").append(htmlstr);
 		}
 	},
@@ -191,9 +191,9 @@ var houseList = {
 		var me = this;
 		$("#refuseList").html("");
 		for (var i = 0; i < data.length; i++) {
-			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
-				'<input type="checkbox" name="id" value="' + data[i].id + '"">' +
-				'<img src="' + data[i].idCard + '" class="img-head" alt="User Image" /></div>';
+			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].uid + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
+				'<input type="checkbox" name="id" value="' + data[i].uid + '"">' +
+				'<img src="' + data[i].houseUrl + '" class="img-head" alt="User Image" /></div>';
 			$("#refuseList").append(htmlstr);
 		}
 	},
