@@ -135,6 +135,8 @@
 								<a href="#headNoCheck" data-state="1" aria-controls="headNoCheck" role="tab" data-toggle="tab">未审核</a></li>
 							<li role="presentation">
 								<a href="#headRefuse" data-state="3" aria-controls="headRefuse" role="tab" data-toggle="tab">不通过</a></li>
+							<li role="presentation">
+								<a href="#headPass" data-state="2" aria-controls="headPass" role="tab" data-toggle="tab">已通过</a></li>
 							<li class="search-by-id">
 								<div class="input-group">
                     				<input type="text" class="form-control" id="nicktext" placeholder="搜索用户昵称">
@@ -209,6 +211,36 @@
   											  </li>
   											  <li>
   											    <a href="#" data-label="Next" id="refuseNext">
+  											      <span data-hidden="true">下一页</span>
+  											    </a>
+  											  </li>
+  											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+							<div role="tabpanel" class="tab-pane fade" id="headPass">
+								<div class="box box-primary top-box">
+									<div class="box-header with-border">
+									</div>
+									<div class="box-body head-check-items" id="passList">
+									</div>
+								</div>
+								<div class="box box-primary bottom-box">
+									<div class="box-header with-border">
+										<button type="button" class="btn btn-primary selectall">全选</button>
+										<button type="button" class="btn btn-primary selectreverse">反选</button>
+										<button type="button" class="btn btn-primary nopasscheck">不通过</button>
+										<nav class="pull-right">
+  											<ul class="pagination">
+  											  <li>
+  											    <a href="#" data-label="Pre" id="passPre">
+  											      <span data-hidden="true">上一页</span>
+  											    </a>
+  											  </li>
+  											  <li>
+  											    <a href="#" data-label="Next" id="passNext">
   											      <span data-hidden="true">下一页</span>
   											    </a>
   											  </li>

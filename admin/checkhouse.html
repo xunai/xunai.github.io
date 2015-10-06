@@ -134,7 +134,10 @@
 								<a href="#headNoCheck" data-state="1" aria-controls="headNoCheck" role="tab" data-toggle="tab">未审核</a>
 							</li>
 							<li role="presentation">
-								<a href="#headRefuse" data-state="3" aria-controls="headRefuse" role="tab" data-toggle="tab">不通过</a>
+								<a href="#headRefuse" data-state="2" aria-controls="headRefuse" role="tab" data-toggle="tab">不通过</a>
+							</li>
+							<li role="presentation">
+								<a href="#headPass" data-state="3" aria-controls="headPass" role="tab" data-toggle="tab">已通过</a>
 							</li>
               				<li class="search-count" id="nocount">现有未审核数:
               				</li>
@@ -208,6 +211,43 @@
 											</li>
 											<li>
 												<a href="#" data-label="Next" id="refuseNext">
+													<span data-hidden="true">下一页</span>
+												</a>
+											</li>
+										</ul>
+									</nav>
+								</div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="headPass">
+							<div class="box box-primary top-box">
+								<div class="box-header with-border">
+									<!-- <div class="btn-group pull-right" data-toggle="buttons">
+										<label class="btn btn-info active">
+											<input type="radio" name="options" id="option1" autocomplete="off" checked><i class="fa fa-male"></i>&nbsp;男
+										</label>
+										<label class="btn btn-info">
+											<input type="radio" name="options" id="option2" autocomplete="off"><i class="fa fa-female"></i>&nbsp;女
+										</label>
+									</div> -->
+								</div>
+								<div class="box-body head-check-items" id="passList">
+								</div>
+							</div>
+							<div class="box box-primary bottom-box">
+								<div class="box-header with-border">
+									<button type="button" class="btn btn-primary selectall">全选</button>
+									<button type="button" class="btn btn-primary selectreverse">反选</button>
+									<button type="button" class="btn btn-primary nopasscheck">不通过</button>
+									<nav class="pull-right">
+										<ul class="pagination">
+											<li>
+												<a href="#" data-label="Pre" id="passPre">
+													<span data-hidden="true">上一页</span>
+												</a>
+											</li>
+											<li>
+												<a href="#" data-label="Next" id="passNext">
 													<span data-hidden="true">下一页</span>
 												</a>
 											</li>

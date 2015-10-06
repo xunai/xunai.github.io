@@ -31,15 +31,18 @@ var houseList = {
 					"userid": parseInt(g_loginuser.xunai_uid)
 				},
 				jsonp: "callbackparam",
-				jsonpCallback: "callback"
+				jsonpCallback: "callbackcount"
 			})
 			.done(function(data) {
 				switch (me.state) {
 					case 1:
 						$("#nocount").text('现有未审核数:' + data.count);
 						break;
-					case 3:
+					case 2:
 						$("#nocount").text('现有不通过审核数:' + data.count);
+						break;
+					case 3:
+						$("#nocount").text('现有通过审核数:' + data.count);
 						break;
 				}
 			});
@@ -62,7 +65,7 @@ var houseList = {
 					"userid": parseInt(g_loginuser.xunai_uid)
 				},
 				jsonp: "callbackparam",
-				jsonpCallback: "callback"
+				jsonpCallback: "callbacklist"
 			})
 			.done(function(data) {
 				me.page[me.state] = pageNum;
@@ -78,9 +81,13 @@ var houseList = {
 						me.load.fadeOut();
 						break;
 					case 2:
+						me._renderRefusecheck(data);
+						me.getCount(me.state);
+						me._rebendEvent();
+						me.load.fadeOut();
 						break;
 					case 3:
-						me._renderRefusecheck(data);
+						me._renderPasscheck(data);
 						me.getCount(me.state);
 						me._rebendEvent();
 						me.load.fadeOut();
@@ -112,12 +119,12 @@ var houseList = {
 					type: 'GET',
 					dataType: 'jsonp',
 					data: {
-						"state": 2,
+						"state": 3,
 						"uid": id,
 						"userid": parseInt(g_loginuser.xunai_uid)
 					},
 					jsonp: "callbackparam",
-					jsonpCallback: "callback"
+					jsonpCallback: "callbackpass"
 				})
 				.done(function(data) {
 					$(".head-check-item[data-checkid=" + id + "]").fadeOut(function() {
@@ -144,12 +151,12 @@ var houseList = {
 					type: 'GET',
 					dataType: 'jsonp',
 					data: {
-						"state": 3,
+						"state": 2,
 						"uid": id,
 						"userid": parseInt(g_loginuser.xunai_uid)
 					},
 					jsonp: "callbackparam",
-					jsonpCallback: "callback"
+					jsonpCallback: "callbackrefuse"
 				})
 				.done(function(data) {
 					$(".head-check-item[data-checkid=" + id + "]").fadeOut(function() {
@@ -195,6 +202,17 @@ var houseList = {
 				'<input type="checkbox" name="id" value="' + data[i].uid + '"">' +
 				'<img src="' + data[i].houseUrl + '" class="img-head" alt="User Image" /></div>';
 			$("#refuseList").append(htmlstr);
+		}
+	},
+	//渲染通过审核
+	_renderPasscheck: function(data) {
+		var me = this;
+		$("#passList").html("");
+		for (var i = 0; i < data.length; i++) {
+			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].uid + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
+				'<input type="checkbox" name="id" value="' + data[i].uid + '"">' +
+				'<img src="' + data[i].houseUrl + '" class="img-head" alt="User Image" /></div>';
+			$("#passList").append(htmlstr);
 		}
 	},
 	//绑定固定事件

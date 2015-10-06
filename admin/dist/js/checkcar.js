@@ -31,15 +31,18 @@ var carList = {
 					"userid": parseInt(g_loginuser.xunai_uid)
 				},
 				jsonp: "callbackparam",
-				jsonpCallback: "callback"
+				jsonpCallback: "callbackcount"
 			})
 			.done(function(data) {
 				switch (me.state) {
 					case 1:
 						$("#nocount").text('现有未审核数:' + data.count);
 						break;
-					case 3:
+					case 2:
 						$("#nocount").text('现有不通过审核数:' + data.count);
+						break;
+					case 3:
+						$("#nocount").text('现有通过审核数:' + data.count);
 						break;
 				}
 			});
@@ -62,7 +65,7 @@ var carList = {
 					"userid": parseInt(g_loginuser.xunai_uid)
 				},
 				jsonp: "callbackparam",
-				jsonpCallback: "callback"
+				jsonpCallback: "callbacklist"
 			})
 			.done(function(data) {
 				me.page[me.state] = pageNum;
@@ -71,16 +74,23 @@ var carList = {
 					return;
 				}
 				switch (state) {
+					//未审核
 					case 1:
 						me._renderNocheck(data);
 						me.getCount(me.state);
 						me._rebendEvent();
 						me.load.fadeOut();
 						break;
+						//审核拒绝
 					case 2:
-						break;
-					case 3:
 						me._renderRefusecheck(data);
+						me.getCount(me.state);
+						me._rebendEvent();
+						me.load.fadeOut();
+						break;
+						//已审核
+					case 3:
+						me._renderPasscheck(data);
 						me.getCount(me.state);
 						me._rebendEvent();
 						me.load.fadeOut();
@@ -112,12 +122,12 @@ var carList = {
 					type: 'GET',
 					dataType: 'jsonp',
 					data: {
-						"state": 2,
+						"state": 3,
 						"uid": id,
 						"userid": parseInt(g_loginuser.xunai_uid)
 					},
 					jsonp: "callbackparam",
-					jsonpCallback: "callback"
+					jsonpCallback: "callbackpass"
 				})
 				.done(function(data) {
 					$(".head-check-item[data-checkid=" + id + "]").fadeOut(function() {
@@ -144,12 +154,12 @@ var carList = {
 					type: 'GET',
 					dataType: 'jsonp',
 					data: {
-						"state": 3,
+						"state": 2,
 						"uid": id,
 						"userid": parseInt(g_loginuser.xunai_uid)
 					},
 					jsonp: "callbackparam",
-					jsonpCallback: "callback"
+					jsonpCallback: "callbackrefuse"
 				})
 				.done(function(data) {
 					$(".head-check-item[data-checkid=" + id + "]").fadeOut(function() {
@@ -195,6 +205,16 @@ var carList = {
 				'<input type="checkbox" name="id" value="' + data[i].uid + '"">' +
 				'<img src="' + data[i].carUrl + '" class="img-head" alt="User Image" /></div>';
 			$("#refuseList").append(htmlstr);
+		}
+	},
+	_renderPasscheck: function(data) {
+		var me = this;
+		$("#passList").html("");
+		for (var i = 0; i < data.length; i++) {
+			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].uid + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
+				'<input type="checkbox" name="id" value="' + data[i].uid + '"">' +
+				'<img src="' + data[i].carUrl + '" class="img-head" alt="User Image" /></div>';
+			$("#passList").append(htmlstr);
 		}
 	},
 	//绑定固定事件

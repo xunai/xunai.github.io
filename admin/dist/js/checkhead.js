@@ -38,6 +38,9 @@ var faceList = {
 					case 1:
 						$("#nocount").text('现有未审核数:' + data.count);
 						break;
+					case 2:
+						$("#nocount").text('现有通过审核数:' + data.count);
+						break;
 					case 3:
 						$("#nocount").text('现有不通过审核数:' + data.count);
 						break;
@@ -77,6 +80,10 @@ var faceList = {
 					me.load.fadeOut();
 					break;
 				case 2:
+					me._renderPasscheck(data);
+					me.getCount(me.state);
+					me._rebendEvent();
+					me.load.fadeOut();
 					break;
 				case 3:
 					me._renderRefusecheck(data);
@@ -183,6 +190,8 @@ var faceList = {
 					me._rebendEvent();
 					break;
 				case 2:
+					me._renderPasscheck(data);
+					me._rebendEvent();
 					break;
 				case 3:
 					me._renderRefusecheck(data);
@@ -231,6 +240,22 @@ var faceList = {
 				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + sexText +
 				'<img src="' + data[i].face + '" class="img-head" alt="User Image" /></div>';
 			$("#refuseList").append(htmlstr);
+		}
+	},
+	//渲染不通过审核
+	_renderPasscheck: function(data) {
+		var me = this;
+		$("#passList").html("");
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].sex == "1") {
+				var sexText = '<span class="label label-primary facelabel"><i class="fa fa-male"></i>&nbsp;男</span>';
+			} else {
+				var sexText = '<span class="label label-danger facelabel"><i class="fa fa-female"></i>&nbsp;女</span>';
+			}
+			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
+				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + sexText +
+				'<img src="' + data[i].face + '" class="img-head" alt="User Image" /></div>';
+			$("#passList").append(htmlstr);
 		}
 	},
 	//绑定固定事件
