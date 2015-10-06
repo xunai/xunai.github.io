@@ -108,7 +108,7 @@ var houseList = {
 			}
 			id = idArray[index];
 			$.ajax({
-					url: me.getUrl + "/hv/update/id",
+					url: me.getUrl + "/hv/update/uid",
 					type: 'GET',
 					dataType: 'jsonp',
 					data: {
@@ -140,7 +140,7 @@ var houseList = {
 			}
 			id = idArray[index];
 			$.ajax({
-					url: me.getUrl + "/hv/update/id",
+					url: me.getUrl + "/hv/update/uid",
 					type: 'GET',
 					dataType: 'jsonp',
 					data: {
