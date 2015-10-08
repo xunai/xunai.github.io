@@ -101,8 +101,8 @@ var g_loginuser = {
       }
 };
 //全局ajax请求地址
-// var g_host = "http://aus.appforwhom.com/aus/";
-var g_host = "http://123.59.52.215:8090/aus/";
+var g_host = "http://aus.appforwhom.com/aus/";
+// var g_host = "http://123.59.52.215:8090/aus/";
 //日期格式化
 Date.prototype.format = function(format) {
       var o = {
