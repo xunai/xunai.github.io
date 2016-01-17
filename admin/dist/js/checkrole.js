@@ -9,7 +9,7 @@ $(function() {
 });
 
 var faceList = {
-	getUrl: g_host + "/ba/1/ck/x/7u/1n/a/2i/sy/st/m",
+	getUrl: g_host + "/ba/1/ck/x/7u/1n/a/2i/sy/st/m/my/god",
 	page: [0, 0, 0, 0],
 	state: 1,
 	load: "",
@@ -31,7 +31,7 @@ var faceList = {
 					"userid": parseInt(g_loginuser.xunai_uid)
 				},
 				jsonp: "callbackparam",
-				jsonpCallback: "callbackcount"
+				jsonpCallback: "callbackcount"+parseInt(Math.random()*1000000)
 			})
 			.done(function(data) {
 				switch (me.state) {
@@ -65,7 +65,7 @@ var faceList = {
 					"userid": parseInt(g_loginuser.xunai_uid)
 				},
 				jsonp: "callbackparam",
-				jsonpCallback: "callbacklist"
+				jsonpCallback: "callbacklist"+parseInt(Math.random()*1000000)
 			})
 			.done(function(data) {
 				me.page[me.state] = pageNum;
@@ -124,7 +124,7 @@ var faceList = {
 						"userid": parseInt(g_loginuser.xunai_uid)
 					},
 					jsonp: "callbackparam",
-					jsonpCallback: "callbackpass"
+					jsonpCallback: "callbackpass"+parseInt(Math.random()*1000000)
 				})
 				.done(function(data) {
 					$(".head-check-item[data-checkid=" + id + "]").fadeOut(function() {
@@ -156,7 +156,7 @@ var faceList = {
 						"userid": parseInt(g_loginuser.xunai_uid)
 					},
 					jsonp: "callbackparam",
-					jsonpCallback: "callbackrefuse"
+					jsonpCallback: "callbackrefuse"+parseInt(Math.random()*1000000)
 				})
 				.done(function(data) {
 					$(".head-check-item[data-checkid=" + id + "]").fadeOut(function() {

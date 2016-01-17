@@ -52,6 +52,9 @@ body{font-family:"微软雅黑";}
 .right .direct-chat-name{float:right;}
 .direct-chat-timestamp{float:right;}
 .right .direct-chat-timestamp{float:left;}
+.head-check-item.nick-check-item{ width: 28.33%;overflow: hidden;white-space: normal;word-break: break-all;padding-left: 30px;min-height: 30px;line-height: 30px;}
+.head-check-item.nick-check-item i{font-size: 30px;left: 0;right: auto;top: 50%;margin-top: -15px;}
+.head-check-item.nick-check-item.active i.fa-check-square-o{color:#1b926c;}
 .heartbeat{color:#ff0000;font-size:20px;-webkit-animation:heartbeat 2s linear infinite;-moz-animation:heartbeat 2s linear infinite;-o-animation:heartbeat 2s linear infinite;animation:heartbeat 2s linear infinite;-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;}
 @-webkit-keyframes heartbeat{
 	0%{-webkit-transform:scale(.9,.9);}

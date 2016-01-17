@@ -10,7 +10,7 @@ $(function() {
 });
 
 var dateTree = {
-	getUrl: g_host + "/ba/1/ck/x/7u/1n/a/2i/sy/st/m",
+	getUrl: g_host + "/ba/1/ck/x/7u/1n/a/2i/sy/st/m/my/god",
 	utime: {
 		"-1": "9223372036854775807",
 		"0": "9223372036854775807",
@@ -53,7 +53,7 @@ var dateTree = {
 				"userid": parseInt(g_loginuser.xunai_uid)
 			},
 			jsonp: "callbackparam",
-			jsonpCallback: "callback"
+			jsonpCallback: "callback"+parseInt(Math.random()*1000000)
 		}).done(function(data) {
 			if (data === null||!data) {
 				me.load.fadeOut();
@@ -95,7 +95,7 @@ var dateTree = {
 				"userid": parseInt(g_loginuser.xunai_uid)
 			},
 			jsonp: "callbackparam",
-			jsonpCallback: "callback"
+			jsonpCallback: "callback"+parseInt(Math.random()*1000000)
 		}).done(function(data) {
 			dom.fadeOut(function() {
 				var dom = $(this);
@@ -122,7 +122,7 @@ var dateTree = {
 				"userid": parseInt(g_loginuser.xunai_uid)
 			},
 			jsonp: "callbackparam",
-			jsonpCallback: "callback"
+			jsonpCallback: "callback"+parseInt(Math.random()*1000000)
 		}).done(function(data) {
 			dom.fadeOut(function() {
 				var dom = $(this);

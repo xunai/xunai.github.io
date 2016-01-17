@@ -5,7 +5,7 @@
  * @version 1.000
  */
 var chatUserlist = {
-	getUrl: g_host + "/ba/1/ck/x/7u/1n/a/2i/sy/st/m",
+	getUrl: g_host + "/ba/1/ck/x/7u/1n/a/2i/sy/st/m/my/god",
 	page: 0,
 	pageSize: 20,
 	init: function() {
@@ -25,7 +25,7 @@ var chatUserlist = {
 					"userid": parseInt(g_loginuser.xunai_uid)
 				},
 				jsonp: "callbackparam",
-				jsonpCallback: "callback"
+				jsonpCallback: "callback"+parseInt(Math.random()*1000000)
 			})
 			.done(function(data) {
 				me.page = pageNum;
@@ -72,7 +72,7 @@ var chatUserlist = {
 	}
 };
 var chatDOM = {
-	getUrl: g_host + "/ba/1/ck/x/7u/1n/a/2i/sy/st/m",
+	getUrl: g_host + "/ba/1/ck/x/7u/1n/a/2i/sy/st/m/my/god",
 	uid: "", //用户ID
 	rid: "", //机器人ID
 	loop: false,
@@ -92,7 +92,7 @@ var chatDOM = {
 					"userid": parseInt(g_loginuser.xunai_uid)
 				},
 				jsonp: "callbackparam",
-				jsonpCallback: "callback"
+				jsonpCallback: "callback"+parseInt(Math.random()*1000000)
 			})
 			.done(function(data) {
 				if (needRefresh === true) {
@@ -191,7 +191,7 @@ var chatDOM = {
 					"userid": parseInt(g_loginuser.xunai_uid)
 				},
 				jsonp: "callbackparam",
-				jsonpCallback: "callback"
+				jsonpCallback: "callback"+parseInt(Math.random()*1000000)
 			})
 			.done(function() {
 				me.updateDom(me.uid, me.rid, false);
@@ -211,7 +211,7 @@ var chatDOM = {
 					"userid": parseInt(g_loginuser.xunai_uid)
 				},
 				jsonp: "callbackparam",
-				jsonpCallback: "callback"
+				jsonpCallback: "callback"+parseInt(Math.random()*1000000)
 			})
 			.done(function() {
 				var n = noty({
@@ -284,7 +284,7 @@ var chatDOM = {
 	}
 };
 var chatInfo = {
-	getUrl: g_host + "/ba/1/ck/x/7u/1n/a/2i/sy/st/m",
+	getUrl: g_host + "/ba/1/ck/x/7u/1n/a/2i/sy/st/m/my/god",
 	init: function() {
 		var me = this;
 		$.ajax({
@@ -296,7 +296,7 @@ var chatInfo = {
 				"type": 1
 			},
 			jsonp: "callbackparam",
-			jsonpCallback: "callback"
+			jsonpCallback: "callback"+parseInt(Math.random()*1000000)
 		}).done(function(data) {
 			me.renderInfo(data);
 		});

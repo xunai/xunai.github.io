@@ -1,14 +1,14 @@
 /**
- * checkhead.js
+ * checknick.js
  * @zzy
- * @date    2015-03-28 16:14:29
+ * @date    2016-01-17 23:14:29
  * @version $Id$
  */
 $(function() {
-	faceList.init();
+	summayList.init();
 });
 
-var faceList = {
+var summayList = {
 	getUrl: g_host + "/ba/1/ck/x/7u/1n/a/2i/sy/st/m/my/god",
 	page: [0, 0, 0, 0],
 	state: 1,
@@ -23,16 +23,16 @@ var faceList = {
 	getCount: function(state) {
 		var me = this;
 		$.ajax({
-				url: me.getUrl + "/fv/count",
-				type: 'GET',
-				dataType: 'jsonp',
-				data: {
-					"state": state,
-					"userid": parseInt(g_loginuser.xunai_uid)
-				},
-				jsonp: "callbackparam",
-				jsonpCallback: "callbackcount"+parseInt(Math.random()*1000000)
-			})
+			url: me.getUrl + "/fv/count",
+			type: 'GET',
+			dataType: 'jsonp',
+			data: {
+				"state": state,
+				"userid": parseInt(g_loginuser.xunai_uid)
+			},
+			jsonp: "callbackparam",
+			jsonpCallback: "callbackcount" + parseInt(Math.random() * 1000000)
+		})
 			.done(function(data) {
 				switch (me.state) {
 					case 1:
@@ -65,13 +65,13 @@ var faceList = {
 				"userid": parseInt(g_loginuser.xunai_uid)
 			},
 			jsonp: "callbackparam",
-			jsonpCallback: "callbacklist"+parseInt(Math.random()*1000000)
+			jsonpCallback: "callbacklist" + parseInt(Math.random() * 1000000)
 		}).done(function(data) {
 			me.page[me.state] = pageNum;
-				if (data === null) {
-					me.load.fadeOut();
-					return;
-				}
+			if (data === null) {
+				me.load.fadeOut();
+				return;
+			}
 			switch (state) {
 				case 1:
 					me._renderNocheck(data);
@@ -123,7 +123,7 @@ var faceList = {
 					"userid": parseInt(g_loginuser.xunai_uid)
 				},
 				jsonp: "callbackparam",
-				jsonpCallback: "callbackpass"+parseInt(Math.random()*1000000)
+				jsonpCallback: "callbackpass" + parseInt(Math.random() * 1000000)
 			}).done(function(data) {
 				$(".head-check-item[data-checkid=" + id + "]").fadeOut(function() {
 					var dom = $(this);
@@ -154,7 +154,7 @@ var faceList = {
 					"userid": parseInt(g_loginuser.xunai_uid)
 				},
 				jsonp: "callbackparam",
-				jsonpCallback: "callbackrefuse"+parseInt(Math.random()*1000000)
+				jsonpCallback: "callbackrefuse" + parseInt(Math.random() * 1000000)
 			}).done(function(data) {
 				$(".head-check-item[data-checkid=" + id + "]").fadeOut(function() {
 					var dom = $(this);
@@ -182,7 +182,7 @@ var faceList = {
 				"userid": parseInt(g_loginuser.xunai_uid)
 			},
 			jsonp: "callbackparam",
-			jsonpCallback: "callback"+parseInt(Math.random()*1000000)
+			jsonpCallback: "callback" + parseInt(Math.random() * 1000000)
 		}).done(function(data) {
 			switch (me.state) {
 				case 1:
@@ -214,49 +214,37 @@ var faceList = {
 	_renderNocheck: function(data) {
 		var me = this;
 		$("#noCheckList").html("");
+		var htmlstr = "";
 		for (var i = 0; i < data.length; i++) {
-			if (data[i].sex == "1") {
-				var sexText = '<span class="label label-primary facelabel"><i class="fa fa-male"></i>&nbsp;男</span>';
-			} else {
-				var sexText = '<span class="label label-danger facelabel"><i class="fa fa-female"></i>&nbsp;女</span>';
-			}
-			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
-				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + sexText +
-				'<img src="' + data[i].face + '" class="img-head" alt="User Image" /></div>';
-			$("#noCheckList").append(htmlstr);
+			data[i].summary = data[i].summary?data[i].summary:"未知";
+			htmlstr += '<div class="head-check-item nick-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
+				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + data[i].summary + '</div>';
 		}
+		$("#noCheckList").append(htmlstr);
 	},
 	//渲染不通过审核
 	_renderRefusecheck: function(data) {
 		var me = this;
 		$("#refuseList").html("");
+		var htmlstr = "";
 		for (var i = 0; i < data.length; i++) {
-			if (data[i].sex == "1") {
-				var sexText = '<span class="label label-primary facelabel"><i class="fa fa-male"></i>&nbsp;男</span>';
-			} else {
-				var sexText = '<span class="label label-danger facelabel"><i class="fa fa-female"></i>&nbsp;女</span>';
-			}
-			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
-				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + sexText +
-				'<img src="' + data[i].face + '" class="img-head" alt="User Image" /></div>';
-			$("#refuseList").append(htmlstr);
+			data[i].summary = data[i].summary?data[i].summary:"未知";
+			htmlstr += '<div class="head-check-item nick-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
+				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + data[i].summary + '</div>';
 		}
+		$("#refuseList").append(htmlstr);
 	},
 	//渲染不通过审核
 	_renderPasscheck: function(data) {
 		var me = this;
 		$("#passList").html("");
+		var htmlstr = "";
 		for (var i = 0; i < data.length; i++) {
-			if (data[i].sex == "1") {
-				var sexText = '<span class="label label-primary facelabel"><i class="fa fa-male"></i>&nbsp;男</span>';
-			} else {
-				var sexText = '<span class="label label-danger facelabel"><i class="fa fa-female"></i>&nbsp;女</span>';
-			}
-			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
-				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + sexText +
-				'<img src="' + data[i].face + '" class="img-head" alt="User Image" /></div>';
-			$("#passList").append(htmlstr);
+			data[i].summary = data[i].summary?data[i].summary:"未知";
+			htmlstr += '<div class="head-check-item nick-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
+				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + data[i].summary + '</div>';
 		}
+		$("#passList").append(htmlstr);
 	},
 	//绑定固定事件
 	_bendEvent: function() {
@@ -301,15 +289,15 @@ var faceList = {
 	},
 	//重新绑定事件
 	_rebendEvent: function() {
-		$(".img-head").unbind('click').bind("click", function() {
+		$(".head-check-item").unbind('click').bind("click", function() {
 			var me = $(this);
-			var checkbox = me.prev("input[type=checkbox]");
+			var checkbox = me.children("input[type=checkbox]");
 			if (checkbox.attr("checked")) {
 				checkbox.attr("checked", false);
 			} else {
 				checkbox.attr("checked", true);
 			}
-			me.parent().toggleClass("active");
+			me.toggleClass("active");
 		});
 		$(".head-check-item .fa-square-o").unbind('click').bind("click", function() {
 			var me = $(this);

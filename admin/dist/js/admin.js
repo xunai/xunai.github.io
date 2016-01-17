@@ -5,10 +5,10 @@
  * @version $Id$
  */
 //用户权限数组
-var roleArray = ["头像审核", "身份审核", "房产审核", "车产审核", "学历审核", "相亲树", "聊天", "管理"];
+var roleArray = ["头像审核","昵称审核","内心独白审核", "身份审核", "房产审核", "车产审核", "学历审核", "相亲树", "聊天", "管理"];
 //兼职管理列表
 var adminList = {
-	getUrl: g_host + "/ba/1/ck/x/7u/1n/a/2i/sy/st/m",
+	getUrl: g_host + "/ba/1/ck/x/7u/1n/a/2i/sy/st/m/my/god",
 	userGroup: [],
 	userIndex: 0,
 	insertText: "",
@@ -88,7 +88,7 @@ var adminList = {
 				"type": 1
 			},
 			jsonp: "callbackparam",
-			jsonpCallback: "callback"
+			jsonpCallback: "callback"+parseInt(Math.random()*1000000)
 		}).done(function(data) {
 			me.renderToday(data);
 		});
@@ -105,7 +105,7 @@ var adminList = {
 				"type": 2
 			},
 			jsonp: "callbackparam",
-			jsonpCallback: "callback"
+			jsonpCallback: "callback"+parseInt(Math.random()*1000000)
 		}).done(function(data) {
 			me.renderLastMonth(data);
 		});
@@ -113,7 +113,7 @@ var adminList = {
 };
 //反馈列表
 var feedList = {
-	getUrl: g_host + "/ba/1/ck/x/7u/1n/a/2i/sy/st/m",
+	getUrl: g_host + "/ba/1/ck/x/7u/1n/a/2i/sy/st/m/my/god",
 	page: 0,
 	pageSize: 20,
 	load: "",
@@ -139,7 +139,7 @@ var feedList = {
 				"userid": parseInt(g_loginuser.xunai_uid)
 			},
 			jsonp: "callbackparam",
-			jsonpCallback: "callback"
+			jsonpCallback: "callback"+parseInt(Math.random()*1000000)
 		})
 			.done(function(data) {
 				if (data === null) {

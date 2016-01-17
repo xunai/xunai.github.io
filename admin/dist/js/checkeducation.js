@@ -31,7 +31,7 @@ var eduList = {
 					"userid": parseInt(g_loginuser.xunai_uid)
 				},
 				jsonp: "callbackparam",
-				jsonpCallback: "callbackcount"
+				jsonpCallback: "callbackcount"+parseInt(Math.random()*1000000)
 			})
 			.done(function(data) {
 				switch (me.state) {
@@ -65,7 +65,7 @@ var eduList = {
 					"userid": parseInt(g_loginuser.xunai_uid)
 				},
 				jsonp: "callbackparam",
-				jsonpCallback: "callbacklist"
+				jsonpCallback: "callbacklist"+parseInt(Math.random()*1000000)
 			})
 			.done(function(data) {
 				me.page[me.state] = pageNum;
@@ -124,7 +124,7 @@ var eduList = {
 						"userid": parseInt(g_loginuser.xunai_uid)
 					},
 					jsonp: "callbackparam",
-					jsonpCallback: "callbackpass"
+					jsonpCallback: "callbackpass"+parseInt(Math.random()*1000000)
 				})
 				.done(function(data) {
 					$(".head-check-item[data-checkid=" + id + "]").fadeOut(function() {
@@ -156,7 +156,7 @@ var eduList = {
 						"userid": parseInt(g_loginuser.xunai_uid)
 					},
 					jsonp: "callbackparam",
-					jsonpCallback: "callbackrefuse"
+					jsonpCallback: "callbackrefuse"+parseInt(Math.random()*1000000)
 				})
 				.done(function(data) {
 					$(".head-check-item[data-checkid=" + id + "]").fadeOut(function() {
