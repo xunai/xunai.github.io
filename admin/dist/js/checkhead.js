@@ -239,6 +239,7 @@ var faceList = {
 		$("#noCheckList").html("");
 		for (var i = 0; i < data.length; i++) {
 			var otherText = me.getOtherText(data[i]);
+			data[i].face = data[i].face?data[i].face:"../images/no-pic.jpg";
 			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
 				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + otherText.sexText +
 				'<img src="' + data[i].face + '" class="img-head" alt="User Image" />'+otherText.nickText +otherText.summaryText +
@@ -258,6 +259,7 @@ var faceList = {
 		$("#refuseList").html("");
 		for (var i = 0; i < data.length; i++) {
 			var otherText = me.getOtherText(data[i]);
+			data[i].face = data[i].face?data[i].face:"../images/no-pic.jpg";
 			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
 				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + otherText.sexText +
 				'<img src="' + data[i].face + '" class="img-head" alt="User Image" />'+otherText.nickText +otherText.summaryText +'</div>';
@@ -276,6 +278,7 @@ var faceList = {
 		$("#passList").html("");
 		for (var i = 0; i < data.length; i++) {
 			var otherText = me.getOtherText(data[i]);
+			data[i].face = data[i].face?data[i].face:"../images/no-pic.jpg";
 			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
 				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + otherText.sexText +
 				'<img src="' + data[i].face + '" class="img-head" alt="User Image" />'+otherText.nickText +otherText.summaryText +'</div>';
