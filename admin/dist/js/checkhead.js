@@ -245,6 +245,11 @@ var faceList = {
 				'</div>';
 			$("#noCheckList").append(htmlstr);
 		}
+		$("#noCheckList").masonry({
+			itemSelector: '.head-check-item',
+			gutter: 20,
+			isAnimated: true
+		});
 	},
 	//渲染不通过审核
 	_renderRefusecheck: function(data) {
@@ -257,6 +262,11 @@ var faceList = {
 				'<img src="' + data[i].face + '" class="img-head" alt="User Image" />'+otherText.nickText +otherText.summaryText +'</div>';
 			$("#refuseList").append(htmlstr);
 		}
+		$("#refuseList").masonry({
+			itemSelector: '.head-check-item',
+			gutter: 20,
+			isAnimated: true
+		});
 	},
 	//渲染不通过审核
 	_renderPasscheck: function(data) {
@@ -269,6 +279,11 @@ var faceList = {
 				'<img src="' + data[i].face + '" class="img-head" alt="User Image" />'+otherText.nickText +otherText.summaryText +'</div>';
 			$("#passList").append(htmlstr);
 		}
+		$("#passList").masonry({
+			itemSelector: '.head-check-item',
+			gutter: 20,
+			isAnimated: true
+		});
 	},
 	//绑定固定事件
 	_bendEvent: function() {
