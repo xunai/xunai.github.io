@@ -210,19 +210,39 @@ var faceList = {
 		});
 		return idArray;
 	},
+	getOtherText: function(data){
+		if (data[i].sex == "1") {
+				var sexText = '<span class="label label-primary facelabel"><i class="fa fa-male"></i>&nbsp;男</span>';
+			} else {
+				var sexText = '<span class="label label-danger facelabel"><i class="fa fa-female"></i>&nbsp;女</span>';
+			}
+			if(data[i].nick){
+				var nickText = '<div class="nick-dom"><label>昵称：</label><span>'+data[i].nick+'</span></div>'
+			}
+			else{
+				var nickText = '';
+			}
+			if (data[i].summary) {
+				var summaryText = '<div class="summay-dom"><label>内心独白：</label><span>'+data[i].summary+'</span></div>';
+			} else{
+				var summaryText = "";
+			}
+			return {
+				sexText: sexText,
+				nickText: nickText,
+				summaryText: summaryText
+			}
+	},
 	//渲染未审核
 	_renderNocheck: function(data) {
 		var me = this;
 		$("#noCheckList").html("");
 		for (var i = 0; i < data.length; i++) {
-			if (data[i].sex == "1") {
-				var sexText = '<span class="label label-primary facelabel"><i class="fa fa-male"></i>&nbsp;男</span>';
-			} else {
-				var sexText = '<span class="label label-danger facelabel"><i class="fa fa-female"></i>&nbsp;女</span>';
-			}
+			var otherText = me.getOtherText(data);
 			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
-				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + sexText +
-				'<img src="' + data[i].face + '" class="img-head" alt="User Image" /></div>';
+				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + otherText.sexText +
+				'<img src="' + data[i].face + '" class="img-head" alt="User Image" />'+otherText.nickText +otherText.summaryText +
+				'</div>';
 			$("#noCheckList").append(htmlstr);
 		}
 	},
@@ -231,14 +251,10 @@ var faceList = {
 		var me = this;
 		$("#refuseList").html("");
 		for (var i = 0; i < data.length; i++) {
-			if (data[i].sex == "1") {
-				var sexText = '<span class="label label-primary facelabel"><i class="fa fa-male"></i>&nbsp;男</span>';
-			} else {
-				var sexText = '<span class="label label-danger facelabel"><i class="fa fa-female"></i>&nbsp;女</span>';
-			}
+			var otherText = me.getOtherText(data);
 			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
 				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + sexText +
-				'<img src="' + data[i].face + '" class="img-head" alt="User Image" /></div>';
+				'<img src="' + data[i].face + '" class="img-head" alt="User Image" />'+otherText.nickText +otherText.summaryText +'</div>';
 			$("#refuseList").append(htmlstr);
 		}
 	},
@@ -247,14 +263,10 @@ var faceList = {
 		var me = this;
 		$("#passList").html("");
 		for (var i = 0; i < data.length; i++) {
-			if (data[i].sex == "1") {
-				var sexText = '<span class="label label-primary facelabel"><i class="fa fa-male"></i>&nbsp;男</span>';
-			} else {
-				var sexText = '<span class="label label-danger facelabel"><i class="fa fa-female"></i>&nbsp;女</span>';
-			}
+			var otherText = me.getOtherText(data);
 			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
-				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + sexText +
-				'<img src="' + data[i].face + '" class="img-head" alt="User Image" /></div>';
+				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + otherText.sexText +
+				'<img src="' + data[i].face + '" class="img-head" alt="User Image" />'+otherText.nickText +otherText.summaryText +'</div>';
 			$("#passList").append(htmlstr);
 		}
 	},
@@ -301,25 +313,25 @@ var faceList = {
 	},
 	//重新绑定事件
 	_rebendEvent: function() {
-		$(".img-head").unbind('click').bind("click", function() {
+		$(".head-check-item").unbind('click').bind("click", function() {
 			var me = $(this);
-			var checkbox = me.prev("input[type=checkbox]");
+			var checkbox = me.children("input[type=checkbox]");
 			if (checkbox.attr("checked")) {
 				checkbox.attr("checked", false);
 			} else {
 				checkbox.attr("checked", true);
 			}
-			me.parent().toggleClass("active");
+			me.toggleClass("active");
 		});
-		$(".head-check-item .fa-square-o").unbind('click').bind("click", function() {
-			var me = $(this);
-			me.parent().addClass("active");
-			me.parent().children("input[type=checkbox]").attr("checked", true);
-		});
-		$(".head-check-item .fa-check-square-o").unbind('click').bind("click", function() {
-			var me = $(this);
-			me.parent().removeClass("active");
-			me.parent().children("input[type=checkbox]").attr("checked", false);
-		});
+		// $(".head-check-item .fa-square-o").unbind('click').bind("click", function() {
+		// 	var me = $(this);
+		// 	me.parent().addClass("active");
+		// 	me.parent().children("input[type=checkbox]").attr("checked", true);
+		// });
+		// $(".head-check-item .fa-check-square-o").unbind('click').bind("click", function() {
+		// 	var me = $(this);
+		// 	me.parent().removeClass("active");
+		// 	me.parent().children("input[type=checkbox]").attr("checked", false);
+		// });
 	}
 };

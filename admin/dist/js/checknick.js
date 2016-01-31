@@ -217,7 +217,7 @@ var nickList = {
 		var htmlstr = "";
 		for (var i = 0; i < data.length; i++) {
 			data[i].nick = data[i].nick?data[i].nick:"未知";
-			htmlstr += '<div class="head-check-item nick-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
+			htmlstr += '<div class="head-check-item col-xs-12 col-sm-4 nick-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
 				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + data[i].nick + '</div>';
 		}
 		$("#noCheckList").append(htmlstr);
@@ -229,7 +229,7 @@ var nickList = {
 		var htmlstr = "";
 		for (var i = 0; i < data.length; i++) {
 			data[i].nick = data[i].nick?data[i].nick:"未知";
-			htmlstr += '<div class="head-check-item nick-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
+			htmlstr += '<div class="head-check-item col-xs-12 col-sm-4 nick-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
 				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + data[i].nick + '</div>';
 		}
 		$("#refuseList").append(htmlstr);
@@ -241,7 +241,7 @@ var nickList = {
 		var htmlstr = "";
 		for (var i = 0; i < data.length; i++) {
 			data[i].nick = data[i].nick?data[i].nick:"未知";
-			htmlstr += '<div class="head-check-item nick-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
+			htmlstr += '<div class="head-check-item col-xs-12 col-sm-4 nick-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
 				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + data[i].nick + '</div>';
 		}
 		$("#passList").append(htmlstr);

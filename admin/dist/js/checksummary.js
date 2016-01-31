@@ -217,7 +217,7 @@ var summayList = {
 		var htmlstr = "";
 		for (var i = 0; i < data.length; i++) {
 			data[i].summary = data[i].summary?data[i].summary:"未知";
-			htmlstr += '<div class="head-check-item nick-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
+			htmlstr += '<div class="head-check-item col-xs-12 nick-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
 				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + data[i].summary + '</div>';
 		}
 		$("#noCheckList").append(htmlstr);
@@ -229,7 +229,7 @@ var summayList = {
 		var htmlstr = "";
 		for (var i = 0; i < data.length; i++) {
 			data[i].summary = data[i].summary?data[i].summary:"未知";
-			htmlstr += '<div class="head-check-item nick-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
+			htmlstr += '<div class="head-check-item col-xs-12 nick-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
 				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + data[i].summary + '</div>';
 		}
 		$("#refuseList").append(htmlstr);
@@ -241,7 +241,7 @@ var summayList = {
 		var htmlstr = "";
 		for (var i = 0; i < data.length; i++) {
 			data[i].summary = data[i].summary?data[i].summary:"未知";
-			htmlstr += '<div class="head-check-item nick-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
+			htmlstr += '<div class="head-check-item col-xs-12 nick-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
 				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + data[i].summary + '</div>';
 		}
 		$("#passList").append(htmlstr);
