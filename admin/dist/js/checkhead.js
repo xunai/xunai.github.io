@@ -259,7 +259,7 @@ var faceList = {
 		for (var i = 0; i < data.length; i++) {
 			var otherText = me.getOtherText(data[i]);
 			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
-				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + sexText +
+				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + otherText.sexText +
 				'<img src="' + data[i].face + '" class="img-head" alt="User Image" />'+otherText.nickText +otherText.summaryText +'</div>';
 			$("#refuseList").append(htmlstr);
 		}
