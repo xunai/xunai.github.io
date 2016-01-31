@@ -211,19 +211,19 @@ var faceList = {
 		return idArray;
 	},
 	getOtherText: function(data){
-		if (data[i].sex == "1") {
+		if (data.sex == "1") {
 				var sexText = '<span class="label label-primary facelabel"><i class="fa fa-male"></i>&nbsp;男</span>';
 			} else {
 				var sexText = '<span class="label label-danger facelabel"><i class="fa fa-female"></i>&nbsp;女</span>';
 			}
-			if(data[i].nick){
-				var nickText = '<div class="nick-dom"><label>昵称：</label><span>'+data[i].nick+'</span></div>'
+			if(data.nick){
+				var nickText = '<div class="nick-dom"><label>昵称：</label><span>'+data.nick+'</span></div>'
 			}
 			else{
 				var nickText = '';
 			}
-			if (data[i].summary) {
-				var summaryText = '<div class="summay-dom"><label>内心独白：</label><span>'+data[i].summary+'</span></div>';
+			if (data.summary) {
+				var summaryText = '<div class="summay-dom"><label>内心独白：</label><span>'+data.summary+'</span></div>';
 			} else{
 				var summaryText = "";
 			}
@@ -238,7 +238,7 @@ var faceList = {
 		var me = this;
 		$("#noCheckList").html("");
 		for (var i = 0; i < data.length; i++) {
-			var otherText = me.getOtherText(data);
+			var otherText = me.getOtherText(data[i]);
 			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
 				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + otherText.sexText +
 				'<img src="' + data[i].face + '" class="img-head" alt="User Image" />'+otherText.nickText +otherText.summaryText +
@@ -251,7 +251,7 @@ var faceList = {
 		var me = this;
 		$("#refuseList").html("");
 		for (var i = 0; i < data.length; i++) {
-			var otherText = me.getOtherText(data);
+			var otherText = me.getOtherText(data[i]);
 			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
 				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + sexText +
 				'<img src="' + data[i].face + '" class="img-head" alt="User Image" />'+otherText.nickText +otherText.summaryText +'</div>';
@@ -263,7 +263,7 @@ var faceList = {
 		var me = this;
 		$("#passList").html("");
 		for (var i = 0; i < data.length; i++) {
-			var otherText = me.getOtherText(data);
+			var otherText = me.getOtherText(data[i]);
 			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
 				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + otherText.sexText +
 				'<img src="' + data[i].face + '" class="img-head" alt="User Image" />'+otherText.nickText +otherText.summaryText +'</div>';
