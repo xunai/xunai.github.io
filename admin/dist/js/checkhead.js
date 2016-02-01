@@ -283,7 +283,7 @@ var faceList = {
 			var otherText = me.getOtherText(data[i]);
 			data[i].face = data[i].face?data[i].face:"dist/images/no-pic.jpg";
 			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
-				'<input type="checkbox" name="id" value="' + data[i].id + '"">' otherText.sexText + otherText.faceText +otherText.nickText +otherText.summaryText +'</div>';
+				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + otherText.sexText + otherText.faceText +otherText.nickText +otherText.summaryText +'</div>';
 			$("#passList").append(htmlstr);
 		}
 		$("#passList").masonry('destroy');
