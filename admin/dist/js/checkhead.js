@@ -211,27 +211,32 @@ var faceList = {
 		return idArray;
 	},
 	getOtherText: function(data){
+		if(data.face){
+			var faceText = '<img src="' + data.face + '" class="img-head" alt="User Image" />'
+		}else{
+			var faceText = '';
+		}
 		if (data.sex == "1") {
-				var sexText = '<span class="label label-primary facelabel"><i class="fa fa-male"></i>&nbsp;男</span>';
-			} else {
-				var sexText = '<span class="label label-danger facelabel"><i class="fa fa-female"></i>&nbsp;女</span>';
-			}
-			if(data.nick){
-				var nickText = '<div class="nick-dom"><label>昵称：</label><span>'+data.nick+'</span></div>'
-			}
-			else{
-				var nickText = '';
-			}
-			if (data.summary) {
-				var summaryText = '<div class="summay-dom"><label>内心独白：</label><span>'+data.summary+'</span></div>';
-			} else{
-				var summaryText = "";
-			}
-			return {
-				sexText: sexText,
-				nickText: nickText,
-				summaryText: summaryText
-			}
+			var sexText = '<span class="label label-primary facelabel"><i class="fa fa-male"></i>&nbsp;男</span>';
+		} else {
+			var sexText = '<span class="label label-danger facelabel"><i class="fa fa-female"></i>&nbsp;女</span>';
+		}
+		if(data.nick){
+			var nickText = '<div class="nick-dom"><label>昵称：</label><span>'+data.nick+'</span></div>'
+		}else{
+			var nickText = '';
+		}
+		if (data.summary) {
+			var summaryText = '<div class="summay-dom"><label>内心独白：</label><span>'+data.summary+'</span></div>';
+		} else{
+			var summaryText = "";
+		}
+		return {
+			faceText: faceText,
+			sexText: sexText,
+			nickText: nickText,
+			summaryText: summaryText
+		}
 	},
 	//渲染未审核
 	_renderNocheck: function(data) {
@@ -241,8 +246,7 @@ var faceList = {
 			var otherText = me.getOtherText(data[i]);
 			data[i].face = data[i].face?data[i].face:"dist/images/no-pic.jpg";
 			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
-				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + otherText.sexText +
-				'<img src="' + data[i].face + '" class="img-head" alt="User Image" />'+otherText.nickText +otherText.summaryText +
+				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + otherText.sexText + otherText.faceText +otherText.nickText +otherText.summaryText +
 				'</div>';
 			$("#noCheckList").append(htmlstr);
 		}
@@ -261,8 +265,7 @@ var faceList = {
 			var otherText = me.getOtherText(data[i]);
 			data[i].face = data[i].face?data[i].face:"dist/images/no-pic.jpg";
 			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
-				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + otherText.sexText +
-				'<img src="' + data[i].face + '" class="img-head" alt="User Image" />'+otherText.nickText +otherText.summaryText +'</div>';
+				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + otherText.sexText + otherText.faceText +otherText.nickText +otherText.summaryText +'</div>';
 			$("#refuseList").append(htmlstr);
 		}
 		$("#refuseList").masonry('destroy');
@@ -280,8 +283,7 @@ var faceList = {
 			var otherText = me.getOtherText(data[i]);
 			data[i].face = data[i].face?data[i].face:"dist/images/no-pic.jpg";
 			var htmlstr = '<div class="head-check-item" data-checkid="' + data[i].id + '"><i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>' +
-				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + otherText.sexText +
-				'<img src="' + data[i].face + '" class="img-head" alt="User Image" />'+otherText.nickText +otherText.summaryText +'</div>';
+				'<input type="checkbox" name="id" value="' + data[i].id + '"">' otherText.sexText + otherText.faceText +otherText.nickText +otherText.summaryText +'</div>';
 			$("#passList").append(htmlstr);
 		}
 		$("#passList").masonry('destroy');
