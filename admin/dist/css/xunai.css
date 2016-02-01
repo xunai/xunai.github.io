@@ -19,7 +19,7 @@ body{font-family:"微软雅黑";}
 .search-by-id{left:20px;width:300px;top:2px;}
 .nav-tabs>li.search-count{float:right;line-height:42px;right:20px;}
 .head-check-items{padding-top:0;margin-top:-10px;}
-.head-check-item{position:relative;display:block;float:left;margin:10px;cursor:pointer;background-color: #eee;padding: 4px;}
+.head-check-item{position:relative;display:block;float:left;margin:10px;cursor:pointer;background-color: #eee;padding: 4px;height: 178px;width: 178px;}
 .img-head{width:170px;height:170px;padding: 15px;}
 .head-check-item.active{background-color: #1d9d74;}
 .nick-dom {width: 170px;height: 45px;overflow: hidden;}

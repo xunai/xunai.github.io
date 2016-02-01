@@ -250,12 +250,7 @@ var faceList = {
 				'</div>';
 			$("#noCheckList").append(htmlstr);
 		}
-		$("#noCheckList").masonry('destroy');
-		$("#noCheckList").masonry({
-			itemSelector: '.head-check-item',
-			gutter: 20,
-			isAnimated: true
-		});
+		
 	},
 	//渲染不通过审核
 	_renderRefusecheck: function(data) {
@@ -268,12 +263,7 @@ var faceList = {
 				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + otherText.sexText + otherText.faceText +otherText.nickText +otherText.summaryText +'</div>';
 			$("#refuseList").append(htmlstr);
 		}
-		$("#refuseList").masonry('destroy');
-		$("#refuseList").masonry({
-			itemSelector: '.head-check-item',
-			gutter: 20,
-			isAnimated: true
-		});
+		
 	},
 	//渲染不通过审核
 	_renderPasscheck: function(data) {
@@ -286,12 +276,7 @@ var faceList = {
 				'<input type="checkbox" name="id" value="' + data[i].id + '"">' + otherText.sexText + otherText.faceText +otherText.nickText +otherText.summaryText +'</div>';
 			$("#passList").append(htmlstr);
 		}
-		$("#passList").masonry('destroy');
-		$("#passList").masonry({
-			itemSelector: '.head-check-item',
-			gutter: 20,
-			isAnimated: true
-		});
+		
 	},
 	//绑定固定事件
 	_bendEvent: function() {
