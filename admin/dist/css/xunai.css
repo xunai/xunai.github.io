@@ -21,7 +21,7 @@ body{font-family:"微软雅黑";}
 .head-check-items{padding-top:0;margin-top:-10px;}
 .head-check-item{position:relative;display:block;float:left;margin:10px;cursor:pointer;background-color: #eee;padding: 4px;height: 178px;width: 178px;}
 .img-head{width:170px;height:170px;padding: 15px;}
-.head-check-item.active{background-color: #1d9d74;}
+.head-check-item.active{background-color: #333;}
 .nick-dom {width: 170px;height: 45px;overflow: hidden;}
 .summay-dom {width: 170px;height: 125px;overflow: hidden;}
 .head-check-item.active .nick-dom,
@@ -29,11 +29,11 @@ body{font-family:"微软雅黑";}
 @media (max-width:768px){
 	.img-head{width:100px;height:100px;}
 }
-.head-check-item i{display:none;position:absolute;right:0px;top:0px;font-size:22px;margin-top:0;background:transparent;}
-.head-check-item .facelabel{position:absolute;left:0px;top:0px;width:48px;height:30px;}
+.head-check-item i{display:none;position:absolute;right:0px;top: 0;font-size: 16px;margin-top:0;background:transparent;}
+.head-check-item .facelabel{position:absolute;left: -7px;top: -13px;width:48px;height: 22px;font-size: 12px;}
 .head-check-item .facelabel i{display:inline-block;position:relative;}
-.head-check-item i.fa-square-o{display:block;}
-.head-check-item.active i.fa-check-square-o{display:block;color:#fff;}
+.head-check-item i.fa-square-o{display:block;top: -7px;font-size: 20px;}
+.head-check-item.active i.fa-check-square-o{display:block;color: #f55;top: -7px;font-size: 20px;}
 .head-check-item.active i.fa-square-o{display:none;}
 .head-check-item input[type=checkbox]{display:none;}
 .pagination{margin:0;margin-right:20px;float:right;}
